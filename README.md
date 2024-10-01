@@ -20,8 +20,8 @@ Arquivos para teste: "bb.txt", "longo.txt", "longor.txt" e "texto.txt"
 
 Ex: 
 
-    C:\Users\jose\aed-ep>gcc ep.c -o ep1.exe
-    C:\Users\pedro\Desktop\Projeto AED1\v5>ep1 texto.txt lista
+    C:\Users\pedro\WordSearch>gcc ep.c -o ep1.exe
+    C:\Users\pedro\WordSearch>ep1 texto.txt lista
 
 == Modo de compilacao no prompt de comandos do Linux ==
 
