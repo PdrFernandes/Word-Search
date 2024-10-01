@@ -1,0 +1,786 @@
+Informally, an algorithm is any well-defined computational procedure that takes
+some value, or set of values, as input and produces some value, or set of values,
+as output. An algorithm is thus a sequence of computational steps that transform
+the input into the output.
+
+We can also view an algorithm as a tool for solving a well-specified computational
+problem. The statement of the problem specifies in general terms the desired
+input/output relationship. The algorithm describes a specific computational
+procedure for achieving that input/output relationship.
+
+For example, we might need to sort a sequence of numbers into nondecreasing order.
+This problem arises frequently in practice and provides fertile ground for introducing
+many standard design techniques and analysis tools.
+
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 i 
+Um Segundo Turno entre Leibniz e Descartes:
+o infinito contra o negacionismo
+A Second Round Between Leibniz and Descartes: 
+infinity against negationism
+Tatiana Roque *
+ORCID iD 0000-0003-2283-5861
+Victor Giraldo **
+ORCID iD 0000-0002-2246-6798
+Resumo
+Neste texto, buscamos caminhos para o enfrentamento do negacionismo científico, que já mostrou ser instrumento 
+de uma política de morte. Situamos nossos argumentos em uma disputa entre a noção de exatidão, herdada do 
+pensamento cartesiano, e a inclusão do infinito na matemática tal como proposta por Leibniz, com base na posição 
+de que o incompreensível desperta o pensamento. A partir dessa inspiração, que faz referência a um momento 
+determinante da história da matemática, defendemos uma educação como política de vida, que produza outras 
+narrativas, capazes de adiar o fim do mundo.
+Palavras-chave: Educação em ciências. Negacionismo. Problematização.
+Abstract
+In this paper, we seek ways to confront scientific denialism as death-inducing politics. We sustain our arguments 
+* Doutora em Engenharia de Produção pela Universidade Federal do Rio de Janeiro (UFRJ), com doutorado 
+sanduíche em história e filosofia da ciência na Universidade de Paris 7. Professora Titular da Universidade Federal 
+do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brasil. E-mail: tati@im.ufrj.br.
+** Doutor em Engenharia de Sistemas e Computação pela Universidade Federal do Rio de Janeiro (UFRJ). 
+Professor Associado da Universidade Federal do Rio de Janeiro (UFRJ), Rio de Janeiro, RJ, Brasil. E-mail: 
+victor.giraldo@ufrj.br.
+EDITORIAL
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 ii 
+in a dispute between the notion of accuracy of Cartesian thinking and the infinity inclusion das the incomprehensible instigates thought. We defend education as 
+life-inducing politics, which produces other narratives, capable of postponing the end of the world.
+Keywords: Science education.Denialism. Problematization.
+1 Por uma Ciência Comprometida com a Vida
+O negacionismo e os movimentos anticiência tornaram-se problemas graves –
+possivelmente os mais graves de nossos tempos. Tratamentos sem eficácia cientificamente 
+comprovada foram receitados, amplamente, durante a pandemia, com endosso de alguns 
+profissionais da área de saúde; nossa cobertura vacinal vem caindo, ao ponto absurdo de termos
+um novo caso de poliomielite no Brasil; dados objetivos sobre desmatamento são contestados; 
+evidências das mudanças climáticas antropogênicas são negadas e surgem, até mesmo,
+defensores de que a Terra seja plana.
+Atitudes negacionistas se capilarizam e conquistam apoio popular, sustentadas sobre um 
+terreno fértil, produzido por uma crise de confiança na ciência – e isso garante poder político a 
+quem dialoga com o ceticismo (ROQUE, 2021). Como vemos de perto, no Brasil, a ascensão 
+da ultradireita tem relação direta com o negacionismo climático, alçado ao patamar de política 
+de Estado pelo governo Bolsonaro. Diversas ações corroboram esse diagnóstico: desmonte de 
+órgãos técnicos de controle e fiscalização, acusação a ONGs que formulam políticas públicas 
+na área ambiental, desmoralização e perseguição a cientistas, demissão do presidente do INPE 
+por divulgar dados corretos sobre desmatamento. A nova agenda chegou a ser defendida pelo 
+presidente do Brasil na ONU, que aproveitou para anunciar ao mundo que não respeitará os 
+direitos e as terras indígenas.
+Como (re)agir diante desse fenômeno? É um péssimo começo de conversa apontar a 
+ignorância ou a crença religiosa como culpadas pela crise da verdade. Uma pesquisa feita no 
+Brasil, em 2019, indica que a ciência ainda tem crédito junto à população, mesmo com o 
+crescimento do ceticismo. O Centro de Gestão e Estudos Estratégicos, órgão do Ministério da 
+Ciência Tecnologia e Inovação, comparou a opinião de diferentes estratos sociais sobre a 
+seguinte questão, analisando também sua evolução no tempo: a ciência e a tecnologia trazem 
+mais malefícios ou benefícios para a humanidade? As pessoas com renda entre um e dois
+salários mínimos que responderam trazer só benefícios ou mais benefícios do que malefícios
+totalizam, aproximadamente, 67% dessa faixa de renda. 
+Por outro lado, entre 2015 e 2019, o percentual daqueles que acreditavam que a ciência 
+e a tecnologia trazem só benefícios caiu muito (de 51% para 32%), enquanto o percentual dos 
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 iii 
+que consideram que essas trazem mais benefícios do que malefícios aumentou (de 16% para 
+37%). Portanto, ao mesmo tempo que esses dados indicam a importância de manter o otimismo, 
+também mostram que não podemos relaxar. Há outro dado importante, que desafia explicações 
+simplistas para o negacionismo baseadas apenas em renda: na faixa dos que ganham mais de 
+dez salários mínimos, a queda da confiança na ciência é ainda mais significativa. Nesse estrato, 
+no mesmo período de 2015 a 2019, o percentual dos que enxergam só benefícios caiu de 61% 
+para 26%, ao passo que a dúvida, contida na expressão mais benefícios do que malefícios, 
+aumentou de 24% para 51%. Ou seja, embora a desconfiança não tenha chegado a ser a visão 
+majoritária, o ceticismo se insinua – independentemente do estrato social. Logo, a atribuição 
+do crescimento do negacionismo simplesmente à ignorância ou a deficiências educacionais 
+atribuídas aos mais pobres não é explicação adequada para o fenômeno.
+Parece haver uma dificuldade da ciência em oferecer visões de mundo promissoras, 
+como vinha fazendo desde o século XIX. No livro O Dia em que Voltamos de Marte, (ROQUE, 
+2021), descrevemos como a ciência teve um papel essencial para que as pessoas acreditassem 
+que o futuro ofereceria dias melhores. Nos últimos três séculos, ciência e política caminharam 
+juntas, criando projetos, sofrendo abalos, mas reinventando estratégias para reconquistar a 
+confiança social, em prol da ideia de que o progresso científico traria benefícios a todos e 
+diminuiria as desigualdades e o sofrimento coletivo. A visão do sistema planetário e a conquista 
+do espaço são paradigmáticos desses tempos.
+Tudo isso está em questão nos dias de hoje. Vivemos tempos de mudanças sem 
+precedentes. Uma crise da ciência e da política emerge como reação aos modelos que vigoraram 
+até o século XX. O problema se agravou desde que a própria ciência passou a constatar que o 
+planeta está se aquecendo, que isso se deve à ação humana, e que algumas das atividades 
+humanas que mais contribuem com o aquecimento global estão ligadas a grandes interesses 
+econômicos. As mudanças climáticas são um desafio inédito, cujo enfrentamento demanda 
+grandes transformações, que devem ser impulsionadas pelo que os cientistas do clima dizem 
+estar acontecendo. Não é de se espantar que, diante disso, a ciência e a política estejam hoje tão 
+entrelaçadas.
+A melhor maneira de enfrentar o negacionismo não é isolar ou proteger a ciência, com 
+uma ideia de isenção política e social, levando-a de volta à torre de marfim. Ao contrário, nós, 
+cientistas, temos que assumir, também, o papel político de levar às instituições e ao parlamento 
+o discurso científico, usando-o para defender as causas socialmente relevantes em que 
+acreditamos. Em lugar de devastação ambiental e ataques aos direitos indígenas, um projeto de 
+restauração florestal, com manutenção das terras indígenas e inspiração em seus modos de vida 
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 iv 
+para criarmos formas outras de estar no planeta. Em lugar de agronegócio em grandes 
+latifúndios para exportação de commodities, uma economia verde voltada para a segurança 
+alimentar, para a transição energética e para a garantia de bem viver a toda a população. Em 
+lugar de preconceito e exclusão, uma política capaz de produzir uma sociedade mais diversa, 
+justa e igualitária. Em lugar da torre de marfim, uma ciência comprometida com a vida.
+Para além de benefícios concretos, para além do papel da ciência em oferecer remédios 
+e vacinas, soluções para o aquecimento global e para a fome, temos, ainda, que resgatar uma 
+visão de mundo e de futuro. Em paralelo a uma ciência objetiva, há o infinito. No interior da 
+filosofia da ciência, sempre houve disputas sobre o lugar do infinito e do incognoscível. Será 
+que essas ideias deveriam ser empurradas para fora do território do conhecimento científico? 
+Ou o pensamento poderia abordá-las, inventando conceitos capazes de falar do indizível?
+Na continuação deste texto, abordamos, brevemente, uma discordância entre Leibniz e 
+Descartes, em torno dessa questão. O lugar da matemática é evidente em tal disputa, uma vez 
+que a escolha de ferramentas e de ramos específicos da matemática favorecem, ou não, a 
+inclusão do infinito. Antes de passar a falar especificamente da matemática, destacamos uma 
+citação de Nietzsche, em sua obra Humano, Demasiado Humano, publicada originariamente 
+em 1878, sobre o enfado que a ciência provoca caso não alce voos mais altos:
+A ciência dá muita satisfação a quem nela trabalha e pesquisa, e muito pouca a quem 
+aprende seus resultados. Mas, como aos poucos todas as verdades importantes da 
+ciência têm de se tornar cotidianas e comuns, mesmo essa pouca satisfação 
+desaparece: assim como há tempos deixamos de nos divertir ao aprender a formidável 
+tabuada. Ora, se a ciência proporciona cada vez menos alegria e, lançando suspeita 
+sobre a metafísica, a religião e a arte consoladoras, subtrai cada vez mais alegria, então 
+se empobrece a maior fonte de prazer, a que o homem deve quase toda a sua 
+humanidade. Por isso uma cultura superior deve dar ao homem um cérebro duplo, 
+como que duas câmaras cerebrais, uma para perceber a ciência, outra para o que não 
+é ciência; uma ao lado da outra, sem se confundirem, separáveis, estanques; isto é uma 
+exigência da saúde. Num domínio a fonte de energia, no outro o regulador: as ilusões, 
+parcialidades, paixões devem ser usadas para aquecer, e mediante o conhecimento 
+científico deve-se evitar as consequências malignas e perigosas de um 
+superaquecimento. — Se esta exigência de uma cultura superior não for atendida, o 
+curso posterior do desenvolvimento humano pode ser previsto quase com certeza: o 
+interesse pela verdade vai acabar, à medida que garanta menos prazer; a ilusão, o erro, 
+a fantasia conquistarão passo a passo, estando associados ao prazer, o território que 
+antes ocupava: a ruína das ciências, a recaída na barbárie, é a consequência seguinte; 
+novamente a humanidade voltará a tecer sua tela, após havê-la desfeito durante a noite, 
+como Penélope. Mas quem garante que ela sempre terá forças para isso? 
+(NIETZSCHE, 2000, p. 104).
+2 A Matemática: Rainha das Ciências ou Ciência do Infinito?
+A matemática é comumente descrita por jargões tais como a rainha das ciências, como 
+uma forma de situá-la em uma espécie de posição privilegiada em relação a outros campos do 
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 v 
+conhecimento. Esse estatuto se estabeleceu, ao menos, desde o século XVII, pois, desde então, 
+é à matemática que se recorre quando se buscam critérios de certeza e exatidão. Para René 
+Descartes, eram exatos procedimentos que permitiam construir curvas por meio de equações 
+algébricas. Por exemplo, ao invés de construir um círculo geometricamente com instrumentos 
+euclidianos, tornou-se possível construir essa figura por meio da equação 𝑥
+2 + 𝑦
+2 = 𝑟
+2
+. Como 
+argumenta Bos (2001), essa noção de exatidão era característica do século XVII. Na Europa, 
+esse século foi marcado pela disseminação de uma consciência de que o desenvolvimento 
+técnico poderia melhorar a vida das pessoas, por meio do domínio da natureza. Essa ideia pode 
+ser constatada no seguinte trecho do Discurso do Método (Sexta Parte), de Descartes, publicado 
+originalmente em 1637:
+[...] tão logo adquiri algumas noções gerais concernentes à física e tendo começado a 
+comprová-las em várias dificuldades particulares e percebido até onde podiam 
+conduzir e o quanto diferem dos princípios que haviam sido utilizados até o presente, 
+considerei que não podia mantê-las escondidas sem transgredir a lei que nos obriga a 
+procurar, no que depende de nós, o bem geral de todos os homens. Pois elas me 
+mostraram que é possível chegar a conhecimentos muito úteis à vida, e que, em lugar 
+dessa filosofia especulativa que se ensina nas escolas, é possível encontrar-se uma 
+outra prática mediante a qual, conhecendo a força e as ações do fogo, da água, do ar, 
+dos astros, dos céus e de todos os outros corpos que nos cercam, tão claramente como 
+conhecemos os vários ofícios de nossos artífices, poderíamos utilizá-los da mesma 
+forma em todos os usos para os quais são próprios, e assim nos tornarmos como 
+senhores e possuidores da natureza (DESCARTES, 1996, p. 35).
+Descartes já propunha, em suas Regras para a Direção do Espírito, escritas por volta 
+de 1628, uma nova ciência que seria uma espécie de matemática universal (Mathesis 
+Universalis): “uma ciência geral que explique tudo o que se pode investigar acerca da ordem e 
+da medida, sem as aplicar a uma matéria especial” (DESCARTES, 1989, p. 377). Em 
+consonância com outros intelectuais da época, Descartes defendia que somente as coisas 
+passíveis de medida e quantificação podem, realmente, ser conhecidas, e, somente dessas, deve 
+se ocupar o pensamento – ou seja, as coisas mesuráveis e quantificáveis constituíram o objeto 
+dessa ciência universal.
+Para o autor, as deduções lógicas que permitem passar de uma proposição a outra 
+deveriam ser substituídas por relações entre coisas quantificáveis, expressas por equações, isto 
+é, igualdades entre quantidades. Descartes distinguia dois tipos de ideias: as obscuras e 
+confusas, trazidas à percepção pelos sentidos, e as claras e distintas, que se apresentam ao 
+espírito com nitidez e estabilidade. Quanto mais distantes da quantificação, mais as ideias se 
+aproximariam do obscuro, podendo induzir a erros provocados pelos sentidos. Então, o mundo 
+só poderia ser entendido por meio das ideias claras e distintas, produzidas sobretudo pela 
+matemática, com suas quantificações independentes dos sentidos.
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 vi 
+Como destaca Barbin (2006), a concepção de que a realidade é matemática se estabelece 
+pela delimitação de uma realidade constituída pela seleção daquilo que é matematizável. 
+Segunda essa interpretação, com a qual nos alinhamos, a proposição de uma ciência universal, 
+como uma forma privilegiada de entender tudo aquilo que é possível ser entendido – e que, 
+assim, conferiria à matemática o estatuto de rainha das ciências, de fornecedora absoluta de 
+critérios de certeza – é, na verdade, a instituição de um universo, delimitado por aquilo que 
+pode ser entendido por meio da matemática, das coisas quantificáveis e das relações entre elas.
+Para Descartes, há uma ordem do conhecimento que precisa ser respeitada para que se 
+atinja a racionalidade. Um discurso racionalmente estruturado constitui-se por meio da 
+disposição das coisas sob a forma de séries, de tal forma que umas são conhecidas a partir de 
+outras (DESCARTES, 1999). Assim, a ordem consiste em que as coisas seguintes devem ser 
+dispostas de tal forma que sejam demonstradas só pelas coisas que as precedem. Então, a 
+conexão entre os conhecimentos só pode se dar de forma dedutiva, pois, assim se estabelece 
+uma ordem hierárquica e irreversível em que cada verdade é justificada por aquelas que a 
+antecedem.
+Gottfried Leibniz se opõe, contundentemente, a esse modelo de sistematização, herdado 
+da tradição euclidiana, em que se assume um pequeno conjunto de teses fundamentais sem 
+demonstração, a partir das quais todo o restante da doutrina é deduzido sequencialmente. O 
+modelo de sistema defendido por Leibniz não se inspira na geometria grega, mas na física do 
+século XVII, mais especificamente no cálculo de variações, em que o máximo de conteúdo é 
+organizado pelo mínimo de princípios operativos (RESCHER, 1981). A unidade do 
+conhecimento deixa, assim, de residir na unidade do processo dedutivo para ser assegurada pela 
+universalidade dos princípios usados, e se mantém sob a diversidade das exposições. O 
+conhecimento é como o mundo: concentra o máximo de realidade com o máximo de ordem e 
+de economia, no qual a maior variedade possível de fenômenos é originada com base no mínimo 
+de decretos e o máximo de seres coexiste em harmonia. Por isso, a unidade das doutrinas e dos 
+princípios nunca é perdida. Isso vale para a filosofia, para a moral e para a lógica.
+Como afirma Belaval (2003), tanto Descartes como Leibniz estão situados na mesma 
+época dos últimos filósofos físicos. Entretanto, verificam-se profundas diferenças entre suas 
+abordagens de física: enquanto o pensamento de Descartes é marcado pela algebrização da 
+geometria, o pensamento de Leibniz é mais dinâmico, motivado pelos infinitamente pequenos.
+Descartes busca uma arte de inventar, partindo da matemática e interrogando sobre o 
+que dá certeza ao seu método. Leibniz considera que a dinâmica pode incluir na matemática o 
+infinito, também manifestado no infinitamente pequeno. Para o autor, ainda que o homem seja 
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 vii 
+finito, ele pode conhecer algo do infinito, pois o incompreensível tem graus e desperta a 
+inteligência. Para Descartes isso é inadmissível, pois o infinito é obscuro e confuso, por isso, 
+deve ser mantido longe do campo da matemática, que é restrito apenas às ideias claras e 
+distintas. No pensamento cartesiano, o infinito habita o terreno do que não pode ser conhecido 
+– portanto fora do universo delimitado pela matemática. Já Leibniz, encara de frente o infinito 
+e o infinitamente pequeno, com todas as contradições que essa posição possa acarretar, 
+chegando até a desafiar os próprios métodos matemáticos. 
+3 Por uma Educação para Adiar o Fim do Mundo
+Vivemos em tempos graves e sem precedentes, que têm produzido, em muitos de nós, 
+uma profunda e perturbadora sensação de incerteza e ansiedade em relação ao futuro iminente, 
+como se estivéssemos em um momento de bifurcação – em que pequenas escolhas, ações 
+pontuais pudessem determinar se nos dirigimos a um cenário de devastação generalizada ou se 
+há possibilidade de construção de futuros sustentáveis. Essa sensação é, provavelmente, 
+bastante realista.
+A ultradireita, que tem como projeto a devastação humana e ambiental, se sustenta, em 
+grande medida, no negacionismo como política de recrudescimento do ódio absoluto ao 
+conhecimento e à vida, que se infiltra e se dissemina em diversos setores e grupos sociais. Sobre 
+isso, nos alerta Ailton Krenak (2019, p. 13):
+Nosso tempo é especialista em criar ausências: do sentido de viver em sociedade, do
+próprio sentido da experiência da vida. Isso gera uma intolerância muito grande com 
+relação a quem ainda é capaz de experimentar o prazer de estar vivo, de dançar, de 
+cantar. E está cheio de pequenas constelações de gente espalhada pelo mundo que 
+dança, canta, faz chover. O tipo de humanidade zumbi que estamos sendo convocados 
+a integrar não tolera tanto prazer, tanta fruição de vida. Então, pregam o fim do mundo 
+como uma possibilidade de fazer a gente desistir dos nossos próprios sonhos.
+A constatação dessa política que fomenta a fobia ao conhecimento e à vida pode nos 
+ajudar a entender algo que tem parecido difícil de conceber, ou mesmo irreal: como é possível 
+haver, no Brasil de hoje, (tantas) pessoas que se alinhem a ideologias tão explicitamente 
+contrárias aos princípios mais básicos de civilidade e respeito ao outro; pessoas que 
+permaneçam indiferentes quando a dignidade física, emocional e moral do outro é violada, ou 
+flagrantemente ameaçada; ou mesmo pessoas que possam ter alguma dúvida sobre que escolha 
+tomar frente a essas ideologias?
+Os tempos em que vivemos têm nos desafiado a pensar sobre que ações podemos tomar, 
+como professores e cientistas, para o enfrentamento do negacionismo como política de morte. 
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 viii 
+Para isso, é preciso entender que a confiança pública na ciência se baseia na percepção de sua 
+capacidade de oferecer possibilidades de vida, e que essa percepção não opera apenas no campo 
+da razão, mas, sobretudo, no campo dos afetos. Pressionados por tal desafio, por vezes 
+tendemos a subscrever uma posição de que, para enfrentar o negacionismo no terreno da 
+educação, seria necessário um ensino mais duro e rigoroso, especialmente no caso das ciências 
+ditas exatas.
+A crise de confiança na ciência seria, então, causada apenas pelo desconhecimento 
+objetivo de seus fatos e verdades, como estão estruturados internamente hoje. Em outras 
+palavras, uma educação em ciências que apresente seus fatos e verdades, de forma lógica e 
+clara, seria suficiente para resgatar sua confiança pública. Essa posição parece estar relacionada 
+com certa confusão epistemológica entre uma visão interior das ciências ditas exatas, que diz 
+respeito à forma como sua lógica interna estrutura seus critérios de verdade aceitos hoje, e uma 
+visão dessas ciências como práticas sociais, que se refere à produção de sentidos e de saberes
+no âmbito das dimensões histórica e subjetiva. Nesse sentido, como argumentamos em 
+trabalhos anteriores (GIRALDO; ROQUE, 2021, p. 2-3):
+A matemática é socialmente reconhecida hoje como a ciência da lógica, da exatidão e 
+da certeza por excelência. O conhecimento matemático seria, então, caracterizado pela 
+perfeição da estrutura e pela correção dos resultados. [...] A visão convencional da 
+matemática como ciência da lógica, da exatidão e da certeza pode descrever a ordem 
+da estrutura, isto é, a organização do conhecimento matemático científico e seus 
+critérios de legitimação aceitos hoje – porém, não corresponde às ordens de invenção, 
+ou seja, às formas de produção de conhecimento que estiveram e estão presentes nas 
+diversas práticas hoje chamadas de matemáticas. Na matemática contemporânea, a 
+perfeição da estrutura, chancelada pelas regras da lógica, é perseguida na forma de 
+organizar e de encadear axiomas, definições, teoremas e demonstrações, o que 
+constitui a garantia de correção e de exatidão dos resultados.
+Como também já defendemos (GIRALDO; MATOS; QUINTANEIRO, 2020), para 
+enfrentar o negacionismo não precisamos de uma educação que apresente as ciências ditas 
+exatas de forma mais dura, mas, sim, uma educação que produza sentidos e mobilize afetos. 
+Para isso, a ciência precisa se dessacramentalizar, isto é, em lugar de se colocar como um 
+conjunto de fatos e verdades incontestáveis, se apresentar, justamente, a partir de uma constante 
+capacidade de problematizar a si própria, que pode distingui-la de sistemas dogmáticos de 
+crenças. Assim, para que a ciência volte a encantar, precisa se tornar menos exata.
+Entramos, então, em uma disputa em torno de um sentido de exatidão construído 
+historicamente, que conforma visões sobre a matemática e seu ensino hoje, que a situa na 
+posição de rainha das ciências, provedora de exatidão às outras ciências, como defendia 
+Descartes. O que propomos é contestar a visão herdada de Descartes, que esteve em disputa 
+desde sua própria época. Um dos maiores críticos à limitação da noção cartesiana de exatidão 
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 ix 
+foi Leibniz, que contribuiu com a introdução do infinito no território da matemática. Para 
+Descartes, as ideias claras e distintas se opõem às ideias obscuras e confusas. Já para Leibniz, 
+não há tal oposição: as ideias podem ser ao mesmo tempo claras e confusas, distintas e obscuras.
+Inspirados por Leibniz, entendemos que é justamente a desconstrução dessa oposição que põe 
+o pensamento em permanente movimento, em lugar de indicar fatos e verdades completas e 
+acabadas como pontos definitivos de chegada. Assim, nessa disputa, defendemos uma 
+matemática constituída não exclusivamente de ideias claras e distintas, mas, sobretudo, do 
+incompreensível, uma matemática que se situe na incompletude e no inacabamento.
+Mas, em tempos de bifurcação entre a devastação e a vida, que políticas educacionais 
+podem produzir futuros viáveis? Para essa questão, Krenak (2019, p. 13-15) nos ensina uma 
+resposta possível:
+E a minha provocação sobre adiar o fim do mundo é exatamente sempre poder contar 
+mais uma história. Se pudermos fazer isso, estaremos adiando o fim. (...) Há centenas 
+de narrativas de povos que estão vivos, contam histórias, cantam, viajam, conversam 
+e nos ensinam mais do que aprendemos nessa humanidade.
+Para adiar o fim do mundo, precisamos de outras narrativas históricas de ciência e outros 
+sentidos de educação. Para além da inspiração em Leibniz, que tensiona a noção cartesiana de 
+exatidão, aprendemos outras narrativas de mundo, como valores civilizatórios, justamente 
+daqueles povos que têm sido mais ameaçados por políticas de morte e de devastação. Assim, a 
+defesa desses povos, seus corpos, suas tradições e suas formas de estar no mundo não é apenas 
+uma questão ética de justiça histórica, mas representa também a preservação de um caminho 
+possível de futuro sustentável para todos – um caminho para adiar o fim do mundo. Não nos 
+engajamos na defesa desses povos para que possamos lhes ensinar a noção de progresso desta 
+humanidade zumbi, como diz Krenak (2019), um progresso sem compromisso com a vida –
+mas sim para aprender com eles valores civilizatórios que possam produzir uma ciência e uma 
+educação outras. Para enfrentar o negacionismo como política de morte, reivindicamos uma 
+educação como política de vida.
+Referências
+BARBIN, É. La révolution mathématique du XVIIème siècle. Paris: Ellipses, 2006.
+BELAVAL, Y. Leibniz Critique de Descartes. Paris: Gallimard, 2003.
+DESCARTES, R. Discurso do Método. Tradução de J. Guinsburg e Bento Prado Junior, 
+São Paulo, Nova Cultural, 1996.
+DESCARTES, R. Regras para a Direção do Espírito. Tradução: Maria Ermantina Galvão. São 
+Paulo: Martins Fontes, 1999.
+ISSN 1980-4415
+DOI: http://dx.doi.org/10.1590/1980-4415v36n74e01
+Bolema, Rio Claro (SP), v. 36, n. 74, p. i-x, dez. 2022 x 
+BOS, H. J. M. Redefining Geometrical Exactness, Descartes’ Transformation of the Early 
+Modern Concept of Construction. New York: Springer, 2001.
+GIRALDO, V.; MATOS, D.; QUINTANEIRO, W. Entre epistemologias hegemônicas e sabedorias 
+outras: a matemática na encruzilhada. Revista Latinoamericana de Etnomatemática, Popayán, 
+Cauca, v. 13, n. 1, p. 49-66, 2020.
+GIRALDO, V.; ROQUE, T. Por uma Matemática Problematizada: as Ordens de (Re)Invenção. 
+Perspectivas da Educação Matemática, Campo Grande, MS, v. 14, n. 35, p. 1-21, 2021.
+KRENAK, A. Ideias para Adiar o Fim do Mundo. São Paulo: Companhia das Letras, 2019.
+NIETZSCHE, F. Humano, Demasiado Humano. Um livro para espíritos livres. Trad. de Paulo 
+César de Souza. São Paulo: Companhia das Letras, 2000 (Vol. I) e 2008 (Vol. II).
+RESCHER, N. Leibniz and the concept of a system. Studia Leibnitiana, Hannover, [s.v], n. 13, p. 
+114-122, 1981.
+ROQUE, T. O Dia em que Voltamos de Marte. Rio de Janeiro: Planeta, 2021.
+
+Study on Management Information System of Processing Enterprises 
+Wang Li-ping 
+School of Economics and Management 
+Henan Polytechnic University 
+Jiaozuo, P.R.China 
+e-mail: lindsey18@hpu.edu.cn 
+Abstract—With the development and gradual application of 
+information technology and network technique, management 
+information system is becoming a necessary tool for 
+enterprise participating in international competition. The 
+paper firstly generally introduced the characteristics of 
+processing enterprises that include production processing 
+enterprises and brand marketing enterprises. Secondly, the 
+paper analyzed the entire function of management 
+information system of processing enterprise, and finally 
+designed in detail the purchasing management and 
+marketing management system based on internet, which will 
+provide some helpful thoughts and practicable measures for 
+informationization construction of processing enterprises. 
+Keywords-management information system; marketing 
+management; processing enterprise; purchasing management 
+I. INTRODUCTION
+With the swift step of opening to the outside world and 
+continuous improvement of economic environment, more 
+and more multinational companies take China as their 
+production bases. Especially some small and middle 
+enterprises mainly take up processing mission of foreign 
+trade order form. In addition, some domestic brand 
+enterprises without marketing network sometimes sell 
+their products by the hand of other distributors for their 
+lower brand popularity and smaller enterprises scale, so 
+that these enterprises also are thought as order form 
+processing enterprises. In the age of informationization, 
+how to promote the management information system 
+construction of these enterprises is not only related with 
+the existence and development of these enterprises, but 
+also related with the healthy development of Chinese 
+foreign trade and the entire economy. Based on wide 
+enterprise requirement investigation, the paper designed 
+the management information system of order form 
+processing enterprises, which would help enterprise to 
+realize the operating aim of “increase income and decrease 
+expenditure” and provide necessary help for the 
+corresponding staff in all kinds of business activities, 
+consequently achieve to improvement of work efficiency, 
+enhance the accuracy of decision-making, and reduce the 
+work fault [1-2]. In detail, this management information 
+system at least provides the functions as following [3-6]: 
+(1) Management information system of order form 
+processing enterprises includes customer order system, 
+products quotation system, management system of 
+products developing; purchasing management system, 
+production management system, order form processing 
+and production decomposition system, storage 
+management system, sale and shipment system, logistics 
+and personnel administration system, financial 
+management system, etc; 
+(2) Management information system of order form 
+processing enterprises should have strong processing 
+function for huge capacity of information; 
+(3) Management information system of order form 
+processing enterprises could decompose and deal with 
+different batch of products order form; 
+Because of miscellaneous system function, the paper 
+suggested that processing enterprises had better develop 
+by stages and implement by step management information 
+system. Until system application of the former stage steps 
+into the right path, enterprise begins to the next stage of 
+construction and implementation of management 
+information system, so as to make sure the steady and 
+gradual advance of project construction and lower the 
+project risk. Generally, the steps of system construction 
+can follow the procedure: firstly, provide the 
+self-determination right of order management for 
+customers and build up the order form system based on 
+web through advance information technology, in order to 
+make both upper suppliers and lower customers dispose 
+and examine order form on web and real time track and 
+control the order form; secondly, based on web order form 
+system, in time feedback order information to 
+corresponding departments through workflow technology, 
+and order forms can be transferred and disposed among 
+departments according to foregoing process, in order to 
+make business personnel and customers know real time 
+order form information, and reduce work delay or work 
+fault; finally, strengthen the management and control of 
+customers materials based on order system, in order to 
+make enterprise managers and corresponding staff real 
+time hold all the information of order form, quotation, 
+amount of sale, cost, received account and payable 
+account from different customers or suppliers. 
+Due to the complexity of management information 
+system of processing enterprises, the paper would only 
+analyze two important parts: purchasing management 
+system and marketing management system. 
+II. PURCHASING MANAGEMENT SYSTEM ANALYSIS
+Purchasing is a very important business process for 
+processing enterprises, especial processing enterprise with 
+importing raw materials. The object of purchasing 
+management is all the business behaviors during the 
+enterprises’ external purchasing. Based on the different 
+purchasing behaviors, the paper mainly brought forward 
+the specific designs proposal for the following functions 
+[7-10]. 
+2.1 Purchasing Plan Management 
+The objects of management are the established 
+2009 International Conference on E-Learning, E-Business, Enterprise Information Systems, and E-Government
+978-0-7695-3907-2/09 $26.00 © 2009 IEEE
+DOI 10.1109/EEEE.2009.11
+6
+Authorized licensed use limited to: UNIVERSIDADE DE SAO PAULO. Downloaded on April 16,2023 at 15:21:44 UTC from IEEE Xplore. Restrictions apply.
+purchasing plan and the unestablished purchasing plan 
+which may be examined and approved by several leaders 
+in order to make purchasing orders. 
+Support the purchasing management of raw materials, 
+accessories and finished products which enterprises could 
+directly sell. 
+The data of purchasing plans come from production 
+planning data, which means material requirement planning 
+could be generated automatically according to the 
+production demand, and then changed into purchasing 
+orders in the end. Besides, the data of purchasing plan 
+could be input artificially so that the senior leaders know 
+fairly well fund occupation situation while they authorize 
+the purchasing plan and affirm purchasing orders. 
+2.2 Purchasing Order Management 
+The management of purchasing order which have been 
+authorized in the term of validity need can track its 
+execution process, and finish the job of close and 
+maintenance of orders. Through purchasing order 
+management and data maintenance, available stock in the 
+process of production and sale could be effectively 
+managed. Usually, the materials in purchasing orders 
+which have been authorized are thought of as materials on 
+the way which would arrive at enterprises in future, so 
+they should be considered one kind of the available stock. 
+At the same time, purchasing orders could also be 
+tracked through data of arrival of goods, in order to assist 
+purchaser and managers to know and supervise the 
+purchasing process, ultimately ensure timely supply of 
+materials. 
+2.3 Supplier Management 
+Through suppliers’ data, execution record of historical 
+orders and orders in execution, the suppliers could be 
+synthetically evaluated on their ability of supply and credit 
+grade. At the same time, suppliers’ relationship could be 
+managed according to enterprise needs. In addition, 
+supplier management could assist purchasers by offering 
+optional suppliers, as a result, the purchasing activities 
+after comprehensive comparison would be more scientific 
+and reasonable. 
+2.4 Management of Advance Payment and Account 
+Payable 
+Through the comprehensive analysis of payment, 
+materials information and invoices, advance payment and 
+account payable could be tracked and managed. 
+Enterprises should statistically analyze advance payment 
+and account payable to assist fund management. The 
+systems should support the management of value-added 
+tax and plain invoices, and provide the service of cancel 
+after verification between invoices and arrival of goods, 
+payment and invoices one by one, so that invoices could 
+be inquired conveniently. 
+2.5 Checkout Management when Materials Arrived 
+Before goods are sent, upper enterprises could send the 
+list of materials to lower enterprises in advance by internet. 
+After arrival of goods, lower enterprises could contrast 
+materials list early sent with bar code of materials and 
+directly write them into database. Hence, the speed of 
+checkout would be quickened greatly. 
+In conclusion, purchasing management is an important 
+connection point of upper and lower enterprises in 
+information management system. Therefore, the design 
+standards of purchasing management would have a direct 
+effect on the implementation efficiency of information 
+management system, which should be paid sufficient 
+attention by enterprises. 
+III. MARKETING MANAGEMENT SYSTEM ANALYSIS
+According to the characteristics of order form 
+processing enterprise, the paper analyzed several system 
+modules as following [11-12]. 
+3.1 Order Management 
+Order management is done by the mode that 
+registration and management of contract data to track the 
+implementation of order. This not only let managers 
+expediently analyze current and former order, but also 
+real-time transfer the production information to customers 
+with the assistance of production management system. In 
+addition, that Web electronic order forms are confirmed 
+and submitted is absolutely necessary content of the 
+network order form management system. 
+3.2 Customer Management 
+Customers are the object and target of marketing 
+behavior, which are especially important for order form 
+processing enterprise because the loss of customers just 
+means the loss of order forms. Exactly speaking, customer 
+management is that customer information and customer 
+dealing history are managed though computer system to 
+make customer resources become valuable resources of 
+enterprise and be fully utilized. Customer information 
+management should include some fundamental functions, 
+such as the establishment, storage, inquiry, modification 
+of information, which provide the foundation for analysis 
+and evaluation of customers in the future. Dealing history 
+management of customer should track the situation of 
+customer transactions, historical profit, goods historical 
+prices, commodities prices trend. Analysis on customer 
+transaction history not only enhances customer 
+relationship management and evaluate customer credit, but 
+also be beneficial for enterprises when they make 
+integrative decision to expand their business. 
+3.3 Marketing Member Management 
+Marketing members are the actors of marketing 
+behavior, so the efficient management of marketing 
+members can substantially improve marketing efficiency. 
+Marketing member management primarily means the 
+management of members’ information and their 
+performance appraisal. Under the condition of using 
+management information system, marketing members not 
+only could be evaluated according to their sales amount or 
+sales profit, but also be examined by other ways based on 
+the actual situation of enterprise and management needs, 
+such as the detailed analysis of marketing expenses, the 
+evaluation of the work efficiency of marketing members, 
+in order to make the evaluation system more reasonable, 
+the sources of evaluation data more true and reliable, and 
+the evaluation criterion and the whole evaluation process 
+more objective, which can reduce factitious errors, 
+optimize the personnel structure, cut down business 
+expenses, and raise wages management efficiency through 
+clear reward and punishment system. 
+3.4 Financial Management 
+For many enterprises of order form processing, 
+financial management is also an important management 
+content. Therefore, enhancing the transparency of 
+financial management and its efficiency are the primary 
+7
+Authorized licensed use limited to: UNIVERSIDADE DE SAO PAULO. Downloaded on April 16,2023 at 15:21:44 UTC from IEEE Xplore. Restrictions apply.
+goals in such enterprises. The goals could be achieved 
+effectively through computer to track and analyze account 
+receivable, advance payment, marketing costs, wage of 
+marketing members, and other related information, and 
+system can automatically submit the analysis report to 
+relevant management according to former manual settings. 
+3.5 Product Customization Management 
+With the advancement of production techniques and 
+improvement of people's living standards, more and more 
+products are customized. As for the target of product 
+customization service, one is group customization and the 
+other is personal customization. No matter what kind of 
+customization, they follow the same process and principle. 
+First, enterprise should measure the target customer. In 
+this process, customization can be done not only by actual 
+data but also by detailed specification. Regardless of the 
+manner, the impact of personal factor is very obvious in 
+actual operation, while using computer to manage large 
+amount of data not only can greatly reduce labor costs, but 
+also significantly improve the accuracy of data processing. 
+Therefore, according to the actual demand, this paper puts 
+forward the following management optimization model 
+for product customization management. 
+(1) Enterprises can acquire customers’ data not only 
+through conventional methods but also through building 
+up their own web site to make customers input their own 
+data, which can save a lot of labor and material resources, 
+facilitate remote data collection, and benefit for corporate 
+image propaganda. 
+(2) After customer submit the corresponding data, on 
+the one hand the enterprise may transmit the data to the 
+production department through internal management 
+information system for the next purchasing and production, 
+on the other hand the statistics and analysis upon the data 
+will help enterprises to obtain the first-hand information of 
+relevant style, and facilitate enterprises to track and record 
+the changes of customer data. Through the application of 
+these measures, the enterprise can greatly increase the 
+work efficiency and service quality. 
+(3) System should allocate each customer a unique 
+identity code so as to dispose expediently the relevant 
+information of this customer. In the process of 
+high-quality production, this identity code can be used as 
+the serial number of production circulation to facilitate 
+production management. 
+(4) Product customization is an effective manner that 
+enterprises meet personalized demand of customers, so 
+customer relationship management seems particularly 
+important. As a result, this paper puts forward the database 
+marketing, which means that enterprises have the detailed 
+data of ultimate consumers. Through the analysis on all 
+kinds of information, it not only plays an important role 
+for the later new product development and marketing 
+decision-making but also facilitates the company's 
+customer relationship management and realizes the 
+individual service so that enterprise can acquire good 
+economic benefit. 
+Finally, from the point of view of abroad development 
+situation, chain operation will be a development direction. 
+Therefore, this paper, according to this objective trend, 
+puts forward a special store system to support enterprises’ 
+marketing business operations. Store system mainly has 
+the following two characteristics: 
+(1) It can share data with headquarters. On the one 
+hand, the system may transmit the data of new customers 
+back to headquarters through web; On the other hand, all 
+the stores share the information of customers with 
+identification code, which makes the information can be 
+re-confirmed or modified when customers order goods. 
+These measures meet the demand of flexibility and 
+openness of the system. 
+(2) Through the virtual sample room system of the 
+headquarters, specialty stores can share the style 
+information by various ways to facilitate customers to buy. 
+At the same time, with the organic integration of 
+warehouses and production management module, 
+enterprises can achieve the complete e-commerce mode 
+facing towards end customers. 
+3.6 Import and Export Management 
+Import and export management is an all-sided 
+management for enterprises’ import and export declaration 
+affairs. It covers the whole process of the enterprise’ 
+import and export declaration management, such as 
+foreign trade contract and foreign trade document 
+management. The electronic management of foreign trade 
+contract not only includes the record, query and analysis 
+of contract data, but also provides the examination and 
+approval function through web, which enable leaders to 
+control the overall situation at any time and make the 
+decision scientifically to avoid man-made mis-operation 
+and enhance the security of the system. A variety of tasks 
+can be handled through the way that web browser program 
+calls system resources, which truly achieves remote office 
+and mobile office. The electronic management of foreign 
+trade document can save substantial cost through 
+transmitting directly the information on web on the 
+condition of guaranteeing the information security. Due to 
+the particularity of import and export business, there are a 
+series of normative document requirements according to 
+the regulation, such as invoice, packing list, warehouse 
+receipt and so on. The electronic management upon the 
+above steps can increase greatly work efficiency and 
+facilitate the financial personnel to audit through the 
+organic integration with financial system, which 
+effectively enhances the transparency of financial 
+management. 
+IV. CONCLUSION
+21 century is an information age, and information 
+technology is changing the operating mode and 
+competition style of enterprises. No matter how large scale 
+brand enterprises or small scale processing enterprises, all 
+should make full use of information technology to 
+increase their economic efficiency. Management 
+information system is a typical information technology. 
+Management information system replacing for traditional 
+management method not only upgrade the interior 
+management level of enterprise, but also optimize the 
+relationship with all kinds of customers and suppliers and 
+ultimately improve the international competitiveness of 
+enterprise. Certainly, the construction of management 
+information system is a complex systemic engineering, so 
+that enterprise had better develop by stages and implement 
+by step it in order to decrease the construction cost and 
+operating risk. 
+8
+Authorized licensed use limited to: UNIVERSIDADE DE SAO PAULO. Downloaded on April 16,2023 at 15:21:44 UTC from IEEE Xplore. Restrictions apply.
+REFERENCES
+[1] Nasir, Suphan, “The development, change, and transformation of 
+Management Information Systems (MIS): A content analysis of 
+articles published in business and marketing journals,” International 
+Journal of Information Management, vol. 25, no. 5, October, 2005, 
+pp. 442-457. 
+[2] Harman, Keith, “Diffusion of selected concepts in information 
+systems and management: 1973-2004,” Industrial Management and 
+Data Systems, vol. 106, no. 5, 2006, pp. 663-679. 
+[3] Lee, Min Jung, “Intelligent information deriving using network 
+panel data management system in marketing research,” Expert 
+Systems with Applications, vol. 36, no. 2 PART 1, March, 2009, pp. 
+1410-1422. 
+[4] Chen, Ning, “Development of marketing information management 
+system based on C/S platform,” Journal of Xi'an Shiyou University, 
+Natural Sciences Edition, vol. 21, no. 1, January, 2006, pp. 78-81. 
+[5] Ma, Zhiliang, “Information management system for market analysis 
+of real estate development projects,” Journal of Tsinghua 
+University, vol. 47, no. 9, September, 2007, pp. 1409-1413. 
+[6] Nedess, C., “Reporting strategies for a competence-oriented 
+management information system,” International Conference on 
+Computer Applications in Shipbuilding 2007, 2007, pp. 61-69. 
+[7] Tian, Fang-Bin, “The artificial neural network in the application of 
+the management information system,” Journal of National 
+University of Defense Technology, vol. 26, no. 2, April, 2004, pp. 
+51-55. 
+[8] Tan, Hui, “The application of RFID technology in the warehouse 
+management information system,” Proceedings of the International 
+Symposium on Electronic Commerce and Security, ISECS 2008, 
+2008, pp. 1063-1067. 
+[9] Wu, Jiamin, “Supply information management system based on 
+holonic virtual enterprise and Web services,” 2007 International 
+Conference on Wireless Communications, Networking and Mobile 
+Computing, WiCOM 2007, 2007, pp. 6213-6216. 
+[10] Puranik, V.S., “Management information system for energy and 
+environmental aspects of small and Medium Scale Industries,” 
+2004 IEEE International Engineering Management Conference: 
+Innovation and Entrepreneurship for Sustainable Development, 
+IEMC 2004, 2004, pp. 870-874. 
+[11] Sanchez, Luis Enrique, “MMISS-SME practical development: 
+Maturity model for information systems security management in 
+SMEs,” Proceedings of the 5th International Workshop on Security 
+in Information Systems - WOSIS 2007; In Conjunction with ICEIS 
+2007, 2007, pp. 233-244. 
+[12] Williamson, Elizabeth, “Information systems development within 
+supply chain management,” International Journal of Information 
+Management, vol. 24, no. 5, October, 2004, pp. 375-385. 
+9
+Authorized licensed use limited to: UNIVERSIDADE DE SAO PAULO. Downloaded on April 16,2023 at 15:21:44 UTC from IEEE Xplore. Restrictions apply.
+
